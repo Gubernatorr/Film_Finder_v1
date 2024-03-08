@@ -11,3 +11,144 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+#container {
+  width: 1540px;
+  height: 750px;
+  /* background-color: bisque; */
+  display: flex;
+  justify-content: center;
+  margin-top: -10px;
+}
+
+#films-window {
+  width: 80%;
+  height: 100%;
+  background-color: aquamarine;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* grid-gap: 5px; */
+  flex: 3;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+#search-window {
+  height: 100%;
+  width: 20%;
+  flex: 1;
+  padding: 0 20px;
+  margin-top: 10px;
+  /* background-color: blueviolet; */
+  overflow-y: auto;
+  max-height: 900px;
+}
+
+#search-window input[type="text"] {
+  /* width: calc(100% - 20px);  */
+  margin-bottom: 10px; 
+}
+
+#search-window button {
+  margin-right: 10px; /* Відступ між кнопками */
+}
+
+#box{
+  width: 325px;
+  height: 500px;
+  background-color: aqua;
+  margin-left: 32px;
+  margin-right: -15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+#logo {
+  display: flex;
+  align-items: center; 
+}
+
+#logo img {
+  margin-right: 10px; 
+}
+#avatar{
+  width: 100px;
+  height: 100px;
+  background-color: rgb(7, 255, 135);
+  display:flex;
+  align-items: center;
+}
+.movie-preview{
+  width: 325px;
+  height: 550px;
+  /* color: rgb(255, 255, 255); */
+  background-color: white;
+  display: block;
+  /* text-align: center; */
+  margin-left: 20px;
+  margin-bottom: 20px;
+  border-radius: 2%;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+
+}
+.button-style-search{
+  border: none;
+  background-color: rgb(216, 216, 210);
+  font-size: 11pt;
+  color: black;
+  border-radius: 5%;
+  height: 35px;
+  width: 90px;
+}
+.button-style-search:active {
+  background-color: lightblue; /* Новий колір фону кнопки при натисканні */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Тінь при натисканні */
+}
+.button-style-addtothelist{
+  border: none;
+  background-color: rgb(5, 175, 110);
+  font-size: 11pt;
+  color: white;
+  border-radius: 5%;
+  height: 35px;
+  width: 140px;
+}
+.button-style-addtothelist:active {
+  background-color: lightblue; /* Новий колір фону кнопки при натисканні */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Тінь при натисканні */
+}
+.search-input {
+  width: 350px;
+  height: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none; /* Видаляємо зазначення при фокусі */
+  color: rgba(0, 0, 0, 0.8);
+}
+.search-input::placeholder {
+  color: rgba(0, 0, 0, 0.4); 
+  font-family: Gill Sans, sans-serif;
+}
+.search-input:focus {
+  border-color: lightblue; /* Новий колір меж поля пошуку при фокусі */
+  box-shadow: 0 0 5px lightblue; /* Тінь при фокусі */
+}
+.square {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(235, 191, 14);
+  display: inline-block;
+  margin-bottom: -5px; 
+  margin-left: 15px;
+  text-align: center;
+  line-height: 50px;
+  font-weight: bold;
+}
+
+/* Стилізація тексту всередині квадратика */
+.square::before {
+  content: 'IMDB'; /* Текст, який буде відображений всередині квадратика */
+  font-size: 22px; /* Розмір шрифту тексту */
+  color: black; /* Колір тексту */
+  font-family: Impact, fantasy;
+}
