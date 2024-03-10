@@ -1,12 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Background() {
   const [addedMovies, setAddedMovies] = useState([]);
 
+  // Отримуємо збережені дані з sessionStorage при завантаженні сторінки
+  useEffect(() => {
+    const storedMovies = sessionStorage.getItem('addedMovies');
+    if (storedMovies) {
+      setAddedMovies(JSON.parse(storedMovies));
+    }
+  }, []);
+
   const handleAddMovie = (movieData) => {
     const isAlreadyAdded = addedMovies.some(movie => movie.id === movieData.id);
     if (!isAlreadyAdded) {
-      setAddedMovies(prevMovies => [...prevMovies, movieData]);
+      const updatedMovies = [...addedMovies, movieData];
+      setAddedMovies(updatedMovies);
+      // Зберігаємо оновлений список фільмів у sessionStorage
+      sessionStorage.setItem('addedMovies', JSON.stringify(updatedMovies));
     }
   };
 
@@ -23,6 +34,30 @@ export default function Background() {
     </div>
   );
 }
+
+// export default function Background() {
+//   const [addedMovies, setAddedMovies] = useState([]);
+
+//   const handleAddMovie = (movieData) => {
+//     const isAlreadyAdded = addedMovies.some(movie => movie.id === movieData.id);
+//     if (!isAlreadyAdded) {
+//       setAddedMovies(prevMovies => [...prevMovies, movieData]);
+//     }
+//   };
+
+//   return (
+//     <div id='container'>
+//       <div id='films-window'>
+//         {addedMovies.map(movie => (
+//           <FilmBlock key={movie.id} data={movie} />
+//         ))}
+//       </div>
+//       <div id='search-window'>
+//         <SearchWindow onAddMovie={handleAddMovie} />
+//       </div>
+//     </div>
+//   );
+// }
 
 export function FindMovie({ title, onSearch, onAddMovie }) {
   const [loading, setLoading] = useState(false);
@@ -60,7 +95,7 @@ export function FindMovie({ title, onSearch, onAddMovie }) {
     if (movieData) {
       onAddMovie(movieData);
       setMovieData(null);
-      setErrorMessage(''); // Очищуємо повідомлення про помилку при додаванні фільму
+      setErrorMessage('');
     }
   };
 
