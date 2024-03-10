@@ -23,7 +23,7 @@ code {
 #films-window {
   width: 80%;
   height: 100%;
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   /* grid-gap: 5px; */
@@ -41,6 +41,7 @@ code {
   /* background-color: blueviolet; */
   overflow-y: auto;
   max-height: 900px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 #search-window input[type="text"] {
@@ -56,7 +57,7 @@ code {
   width: 325px;
   height: 500px;
   background-color: aqua;
-  margin-left: 32px;
+  margin-left: 23px;
   margin-right: -15px;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -88,6 +89,20 @@ code {
   border-radius: 2%;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
 
+}
+.movie-show-state{
+  width: 325px;
+  height: 550px;
+  /* color: rgb(255, 255, 255); */
+  background-color: white;
+  display: block;
+  /* text-align: center; */
+  margin-left: 20px;
+  padding-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 2%;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
 }
 .button-style-search{
   border: none;
